@@ -1,2 +1,2 @@
 # CinemAI
-CinemAI - A Movie Recommendation Machine Learning Model
+CinemAI - A Content Based Movie Recommendation Machine Learning Model
