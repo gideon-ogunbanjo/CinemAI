@@ -6,6 +6,13 @@ from wordcloud import WordCloud
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
+
+# Welcome Page and Page Configuration
+st.set_page_config(
+    page_title="CinemAI",
+    initial_sidebar_state="expanded",
+)
+
 # Loading the data and performimg preprocessing as needed
 movies = pd.read_csv('data/movies.csv')
 ratings = pd.read_csv('data/ratings.csv')
