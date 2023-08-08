@@ -53,6 +53,7 @@ def recommendations(title):
 
 # Streamlit UI
 st.title("CinemAI - Movie Recommendation App")
+st.write("CinemaAI is an advanced content-based movie recommendation system. Its primary aim is to provide personalized movie recommendations to users based on their movie preferences.")
 
 # Input box for user to enter a movie title
 user_input = st.text_input("Enter a movie title")
@@ -67,4 +68,4 @@ if st.button("Get Recommendations"):
         
         
 link='Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
-st.markdown(link,unsafe_allow_html=True)
+st.markdown(link,unsafe_allow_html=True)                                                                        
