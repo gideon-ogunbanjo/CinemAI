@@ -58,13 +58,16 @@ st.write("CinemaAI is an advanced content-based movie recommendation system. Its
 # Input box for user to enter a movie title
 user_input = st.text_input("Enter a movie title")
 
-# Display recommendations
+# Find the closest matching title
+closest_title = titles[titles.str.contains(user_input, case=False)].iloc[0]
+idx = indices[closest_title]
+
 if st.button("Get Recommendations"):
-    recommended_movies = recommendations(user_input)
+    recommended_movies = recommendations(closest_title)
+    
     st.write("Recommended Movies:")
     for movie in recommended_movies:
         st.write(movie)
-        
         
         
 link='Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
