@@ -23,3 +23,23 @@ genres = str(genres)
 df = pd.merge(ratings, movies, how='left', on='movieId')
 df1 = df.groupby(['title'])[['rating']].sum()
 high_rated = df1.nlargest(20, 'rating')
+
+# Creating the tfdif vectorizer
+model = TfidfVectorizer()
+tfidf_matrix = model.fit_transform(movies['genres'])
+
+# Calculating cosine similarity
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+
+# Create a Series for index lookup
+indices = pd.Series(movies.index, index=movies['title'])
+titles = movies['title']
+
+# Defining recommendations function
+def recommendations(title):
+    idx = indices[title]
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:21]
+    movie_indices = [i[0] for i in sim_scores]
+    return titles.iloc[movie_indices]
