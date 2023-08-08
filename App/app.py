@@ -43,3 +43,16 @@ def recommendations(title):
     sim_scores = sim_scores[1:21]
     movie_indices = [i[0] for i in sim_scores]
     return titles.iloc[movie_indices]
+
+# Streamlit UI
+st.title("CinemAI - Movie Recommendation App")
+
+# Input box for user to enter a movie title
+user_input = st.text_input("Enter a movie title")
+
+# Display recommendations
+if st.button("Get Recommendations"):
+    recommended_movies = recommendations(user_input)
+    st.write("Recommended Movies:")
+    for movie in recommended_movies:
+        st.write(movie)
