@@ -63,3 +63,8 @@ if st.button("Get Recommendations"):
     st.write("Recommended Movies:")
     for movie in recommended_movies:
         st.write(movie)
+        
+        
+        
+link='Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
+st.markdown(link,unsafe_allow_html=True)
