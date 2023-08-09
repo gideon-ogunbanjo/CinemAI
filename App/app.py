@@ -53,7 +53,7 @@ if st.button("Get Recommendations"):
             for movie in recommended_movies:
                 st.write(movie)
         except IndexError:
-            st.write("Movie not found in the dataset.")
+            st.write("Movie not found. Please check the name and try again")
         except requests.exceptions.RequestException:
             st.write("An Error Occured. Please check your internet connection. ")
         except Exception as e:
