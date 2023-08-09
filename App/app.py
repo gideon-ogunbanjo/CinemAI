@@ -56,6 +56,8 @@ if st.button("Get Recommendations"):
             st.write("Movie not found in the dataset.")
         except requests.exceptions.RequestException:
             st.write("An Error Occured. Please check your internet connection. ")
+        except Exception as e:
+            st.write(f"An Error Occured: {e}")
 
 link = 'Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
 st.markdown(link, unsafe_allow_html=True)
