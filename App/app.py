@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
@@ -15,7 +13,7 @@ for genre in movies.genres:
     for i in x:
         if i not in genres:
             genres.append(str(i))
-genres = str(genres)
+genres = ' '.join(genres)
 
 model = TfidfVectorizer()
 tfidf_matrix = model.fit_transform(movies['genres'])
@@ -47,12 +45,15 @@ if st.button("Get Recommendations"):
     if not user_input:
         st.write("Please enter a movie title above.")
     else:
-        closest_title = titles[titles.str.contains(user_input, case=False)].iloc[0]
-        recommended_movies = recommendations(closest_title)
+        try:
+            closest_title = titles[titles.str.contains(user_input, case=False)].iloc[0]
+            recommended_movies = recommendations(closest_title)
 
-        st.write("Recommended Movies:")
-        for movie in recommended_movies:
-            st.write(movie)
+            st.write("Recommended Movies:")
+            for movie in recommended_movies:
+                st.write(movie)
+        except IndexError:
+            st.write("Movie not found in the dataset.")
 
 link = 'Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
 st.markdown(link, unsafe_allow_html=True)
