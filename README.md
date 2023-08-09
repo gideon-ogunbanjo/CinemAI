@@ -37,5 +37,9 @@ CinemAI's functionality revolves around its ability to analyze movie content and
 - Similarity Scoring: Calculates similarity scores between selected movies and others in the database.
 - Personalized Recommendations: Offers movie suggestions based on user preferences and content similarities.
 
+### Limitations
+1. Limited Diversity in Recommendations: Since CinemAI primarily relies on content-based analysis, it might struggle to recommend movies that have unique or novel themes, genres, or styles that may not be explicitly present in the attributes of the user's selected movie. This limitation can result in recommendations that are too similar to each other, potentially leading to a lack of diversity in the suggestions.
+2. Lack of User Context: CinemAI's recommendations are solely based on the attributes of movies and do not take into account the specific preferences, mood, or context of the user. For example, a user might enjoy a certain movie as a light comedy, but if they are in the mood for a thriller, CinemAI might not be able to capture that contextual shift in preferences.
+3. Cold Start Problem: CinemAI might face challenges when dealing with new or less popular movies that have limited information available in the dataset. Without sufficient data on a movie's attributes, it could be challenging to accurately recommend similar movies, particularly when the movie lacks a well-defined genre, director, or cast. This issue is known as the "cold start" problem and can affect the quality of recommendations for newer or less-known films.
 ### Creator 
 Gideon Ogunbanjo
