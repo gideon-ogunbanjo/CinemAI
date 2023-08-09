@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
-
+import requests
 # Load data and perform preprocessing
 movies = pd.read_csv('data/movies.csv')
 
@@ -54,6 +54,8 @@ if st.button("Get Recommendations"):
                 st.write(movie)
         except IndexError:
             st.write("Movie not found in the dataset.")
+        except requests.exceptions.RequestException:
+            st.write("An Error Occured. Please check your internet connection. ")
 
 link = 'Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)'
 st.markdown(link, unsafe_allow_html=True)
