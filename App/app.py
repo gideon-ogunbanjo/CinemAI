@@ -34,6 +34,7 @@ def recommendations(title):
 st.set_page_config(
     page_title="CinemAI",
     initial_sidebar_state="expanded",
+    layout="centered"
 )
 
 st.title("CinemAI - Movie Recommendation App")
