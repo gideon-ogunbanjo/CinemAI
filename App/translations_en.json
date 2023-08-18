@@ -1,0 +1,10 @@
+{
+    "app_title": "CinemAI - Movie Recommendation App",
+    "app_description": "CinemaAI is an advanced content-based movie recommendation system...",
+    "enter_movie_title": "Enter a movie title",
+    "get_recommendations": "Get Recommendations",
+    "no_movie_found": "Movie not found. Please check the name and try again",
+    "error_occurred": "An Error Occurred: {error_message}",
+    "created_by": "Created by [Gideon Ogunbanjo](https://gideonogunbanjo.netlify.app)"
+  }
+  
