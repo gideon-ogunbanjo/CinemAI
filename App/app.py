@@ -38,7 +38,7 @@ st.set_page_config(
 )
 
 st.title("CinemAI - Movie Recommendation App")
-st.write("CinemaAI is an advanced content-based movie recommendation system. Its primary aim is to provide personalized movie recommendations to users based on their movie preferences.")
+st.write("CinemAI is an advanced content-based movie recommendation system. Enter a movie title and get personalized movie recommendations based on your movie preferences.")
 
 user_input = st.text_input("Enter a movie title")
 
@@ -53,10 +53,13 @@ if st.button("Get Recommendations"):
             st.write("Recommended Movies:")
             for movie in recommended_movies:
                 st.write(movie)
+        # Index Error Exception
         except IndexError:
             st.write("Movie not found. Please check the name and try again")
+        # Internet Connection Error Exception
         except requests.exceptions.RequestException:
             st.write("An Error Occured. Please check your internet connection. ")
+        # General Exception
         except Exception as e:
             st.write(f"An Error Occured: {e}")
 
